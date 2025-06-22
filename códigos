@@ -1,0 +1,289 @@
+1. Saída do programa de agendamento (LocalDate)
+
+Java
+
+import java.time.LocalDate;
+
+public class Agendamento {
+    public static void main(String[] args) {
+        LocalDate base = LocalDate.of(2025, 6, 1);
+        int dias = 7;
+        LocalDate novaData = base.plusDays(dias * 2 - 3);
+        System.out.println(novaData.getDayOfMonth());
+    }
+}
+Saída:
+
+12
+
+
+2. Saída do programa de avaliação (Controle de fluxo)
+
+Java
+
+public class Avaliacao {
+    public static void main(String[] args) {
+        int nota = 7;
+        int peso = 2;
+        double media = (nota * peso + 6 * 3) / 5;
+        if (media >= 7.0) {
+            System.out.println("Aprovado");
+        } else {
+            System.out.println("Revisar conteúdo");
+        }
+    }
+}
+Saída:
+
+Revisar conteúdo
+
+
+3. Saída do programa de itens (Construtores)
+
+Java
+
+public class Item {
+    String nome;
+    int quantidade;
+
+    public Item(String nome) {
+        this.nome = nome;
+        this.quantidade = 1;
+    }
+
+    public Item(String nome, int quantidade) {
+        this.nome = nome;
+        this.quantidade = quantidade;
+    }
+
+    public static void main(String[] args) {
+        Item x = new Item("Caderno");
+        Item y = new Item("Caneta", 3);
+        System.out.println(x.quantidade + y.quantidade);
+    }
+}
+Saída:
+
+4
+
+
+4. Saída do programa de controle de fluxo e operadores
+
+Java
+
+// Código original (dentro do método main de uma classe, não mostrado por completo)
+int prioridade = 4;
+int urgencia = 8;
+
+if (prioridade > 3 && urgencia > 7) {
+    System.out.println("Tarefa crítica");
+} else if (prioridade > 3 || urgencia > 7) {
+    System.out.println("Tarefa importante");
+} else {
+    System.out.println("Tarefa comum");
+}
+Saída:
+
+Tarefa crítica
+
+5. Valor final de notificações (Loop for)
+
+Java
+
+// Código original (dentro do método main de uma classe, não mostrado por completo)
+int notificacoes = 0;
+
+for (int i = 1; i <= 5; i++) {
+    if (i % 2 == 0) {
+        notificacoes += 2;
+    } else {
+        notificacoes++;
+    }
+}
+
+System.out.println(notificacoes);
+Saída:
+
+7
+
+
+6. Saída do programa com ArrayList (remoção e adição)
+
+Java
+
+import java.util.ArrayList;
+
+// Código original (dentro do método main de uma classe, não mostrado por completo)
+ArrayList<String> horarios = new ArrayList<>();
+horarios.add("08:00");
+horarios.add("10:00");
+horarios.add("12:00");
+horarios.remove(1); // Remove "10:00"
+horarios.add("14:00");
+
+System.out.println(horarios.get(1)); // Pega o elemento no índice 1
+Saída:
+
+12:00
+
+
+7. Saída do programa de verificação de status de livro (Boolean e métodos)
+
+Java
+
+public class Livro {
+    String titulo;
+    boolean emprestado; // padrão false
+
+    public void emprestar() {
+        emprestado = true;
+    }
+
+    public String status() {
+        if (emprestado) {
+            return "Indisponivel";
+        }
+        return "Disponivel";
+    }
+}
+
+// Trecho de execução (dentro do método main de outra classe ou da própria Livro)
+// Livro l = new Livro();
+// l.titulo = "Java para Iniciantes";
+// System.out.println(l.status());
+// l.emprestar();
+// System.out.println(l.status());
+Saída:
+
+Disponível
+Indisponível
+
+
+8. Comando Git para desfazer commit e manter alterações
+
+Cenário: Desfazer o commit mais recente, mas manter as alterações nos arquivos para corrigir e comitar novamente.
+
+Comando:
+
+Bash
+
+git reset --mixed HEAD~1
+
+
+9. Comando Git para descartar alterações em um arquivo específico
+
+Cenário: Descartar completamente as alterações feitas no arquivo Calculadora.java, restaurando a última versão salva no repositório, sem afetar outros arquivos do projeto.
+
+Comando:
+
+Bash
+
+git checkout Calculadora.java
+
+
+10. Saída do programa de manipulação de datas com LocalTime
+
+Java
+
+import java.time.LocalTime;
+
+// Código original (dentro do método main de uma classe, não mostrado por completo)
+LocalTime envio = LocalTime.of(23, 0);
+LocalTime limite = LocalTime.of(22, 59);
+
+if (!envio.isBefore(limite)) {
+    System.out.println("Entrega fora do horário.");
+} else {
+    System.out.println("Tarefa enviada com sucesso.");
+}
+Saída:
+
+Entrega fora do horário.
+
+11. Saída do programa de cálculo de dias úteis com LocalDate
+
+Java
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+
+// Código original (dentro do método main de uma classe, não mostrado por completo)
+LocalDate data = LocalDate.of(2025, 6, 10); // 10 de junho de 2025 (terça-feira)
+int diasUteis = 0;
+
+while (diasUteis < 7) {
+    data = data.plusDays(1);
+    boolean fimDeSemana = data.getDayOfWeek() == DayOfWeek.SATURDAY || data.getDayOfWeek() == DayOfWeek.SUNDAY;
+    boolean feriado = data.equals(LocalDate.of(2025, 6, 15)); // 15 de junho de 2025 (domingo)
+
+    if (!fimDeSemana && !feriado) {
+        diasUteis++;
+    }
+}
+
+System.out.println(data);
+Saída:
+
+2025-06-19
+
+12. Saída do programa de ordenação de tarefas com Comparable
+
+Java
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Tarefa implements Comparable<Tarefa> {
+    String titulo;
+
+    public Tarefa(String titulo) {
+        this.titulo = titulo;
+    }
+
+    @Override
+    public int compareTo(Tarefa outra) {
+        return this.titulo.compareTo(outra.titulo);
+    }
+
+    @Override
+    public String toString() {
+        return titulo;
+    }
+
+    public static void main(String[] args) {
+        List<Tarefa> tarefas = new ArrayList<>();
+        tarefas.add(new Tarefa("Estudar"));
+        tarefas.add(new Tarefa("Almoçar"));
+        tarefas.add(new Tarefa("Dormir"));
+
+        Collections.sort(tarefas);
+
+        System.out.println(tarefas);
+    }
+}
+Saída:
+
+[Almoçar, Dormir, Estudar]
+
+
+13. Saída do programa de uso de for com filtro
+
+Java
+
+import java.util.ArrayList;
+
+// Código original (dentro do método main de uma classe, não mostrado por completo)
+ArrayList<String> tarefas = new ArrayList<>();
+tarefas.add("Estudar Java");
+tarefas.add("Fazer Exercicios");
+tarefas.add("Revisar código");
+
+for (String tarefa : tarefas) {
+    if (tarefa.contains("Java")) {
+        System.out.println("Tarefa de programação: " + tarefa);
+    }
+}
+Saída:
+
+Tarefa de programação: Estudar Java
